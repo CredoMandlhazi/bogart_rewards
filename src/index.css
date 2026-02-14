@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Bogart Man - Clean White/Gold Theme inspired by bogartman.com */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 38 85% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 38 85% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom Bogart Man tokens */
+    --gold: 38 85% 50%;
+    --gold-dark: 38 80% 42%;
+    --gold-light: 40 70% 65%;
+    --charcoal: 0 0% 15%;
+    --off-white: 40 20% 98%;
+    --red-accent: 0 75% 50%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38 85% 50%) 0%, hsl(38 80% 42%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 5%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 2px 20px -4px hsla(0, 0%, 0%, 0.08);
+    --shadow-elevated: 0 8px 30px -8px hsla(0, 0%, 0%, 0.12);
+    --shadow-gold: 0 4px 20px -4px hsla(38, 85%, 50%, 0.35);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 38 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 38 85% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 38 85% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 38 85% 50%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 38 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 38 85% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    @apply font-normal tracking-wide;
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .text-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .card-premium {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    @apply border border-border;
+  }
+
+  .card-elevated {
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-elevated);
+    @apply border border-border;
+  }
+
+  .card-dark {
+    background: var(--gradient-dark);
+    @apply border border-charcoal;
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .btn-premium {
+    @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-gold {
+    background: var(--gradient-gold);
+    @apply text-primary-foreground font-semibold px-6 py-3 rounded-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-[1.02] active:scale-[0.98];
+    box-shadow: var(--shadow-gold);
+  }
+
+  .tier-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .tier-silver {
+    @apply bg-gradient-to-r from-gray-400 to-gray-300 text-gray-900;
+  }
+
+  .tier-gold {
+    background: var(--gradient-gold);
+    @apply text-primary-foreground;
+  }
+
+  .tier-platinum {
+    @apply bg-gradient-to-r from-gray-700 to-gray-900 text-white;
+  }
+
+  .loyalty-card {
+    background: linear-gradient(145deg, hsl(0 0% 12%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 5%) 100%);
+    @apply relative overflow-hidden rounded-2xl p-6;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .loyalty-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-5;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .promo-card {
+    @apply relative overflow-hidden rounded-xl;
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .promo-card:hover {
+    @apply scale-[1.02];
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center gap-1 py-2 px-4;
+    @apply text-muted-foreground transition-all duration-200;
+  }
+
+  .nav-item.active {
+    @apply text-accent;
+  }
+
+  .nav-item:hover {
+    @apply text-foreground;
+  }
+
+  .points-display {
+    font-family: 'Bebas Neue', sans-serif;
+    @apply text-5xl font-normal tracking-wider;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+
+  .shimmer {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  .brand-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.15em;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 1rem);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Hide scrollbar for mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
